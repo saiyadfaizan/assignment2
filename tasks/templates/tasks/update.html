@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+    .center{
+        text-align: center;
+		width:600px;
+        margin: 20px auto;
+		padding:20px;
+		background-color: #fff;
+		border-radius: 3px;
+		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+    }
+    
+    body{
+		background-color: #181818
+    }
+
+
+</style>
+
+
+
+<html>
+    <head>
+        <title>Update Task</title>
+        
+    </head>
+
+    <body>
+        <div class="center">
+            
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{form}}
+                <input type="submit" name="Update" class="btn btn-success">
+            </form>  
+                   
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+

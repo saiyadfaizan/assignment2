@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<html>
+
+    <head>
+        <title>TODO Home</title>
+
+        {% load static %}
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    </head>
+
+    <body id="bg" style="background-image: url('{% static "image.jpg"%}')" ;>
+
+        <div class="center rounded-lg">
+
+            <form method="POST" action="/">
+                {% csrf_token  %}
+                {{form.title}}
+                <input class="btn btn-success" type="submit" name="Add task">
+            </form>
+
+            <div class="">
+                {% for task in tasks %}
+                <div class="item-row">
+                    <div class="my-2">
+                        {% if task.completed == True %}
+                        <strike> {{task }}</strike>
+                        {% else %}
+                        <span class="my-1">{{task }}</span>
+                        {% endif %}
+                    </div>
+                    <a href="{% url 'update' task.id %}" class="btn btn-info btn-sm">Edit</a>
+                    <a href="{% url 'delete' task.id %}" class="btn btn-danger btn-sm">Delete</a>
+
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+
+</html>
